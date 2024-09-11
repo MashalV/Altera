@@ -75,7 +75,13 @@ WARNING: still haven't decided on colour scheme or font so this may be displeasi
 
 ### Data
 
-Describe your data and the relationships between the data points. You can show this visually using diagrams, or write it out. 
+Taking the subjects from each of the input books
+
+finding the common subjects between the three books 
+
+searching the api for those subjects 
+
+display the books found, after filtering out the original input books 
 
 ### Endpoints
 
