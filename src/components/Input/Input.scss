@@ -1,0 +1,52 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+input {
+    font-family: "Avro";
+    background-color: $background;
+    font-size: 1rem;
+}
+
+.intake {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+
+    &__book {
+        margin-left: 5rem;
+        padding: 1rem;
+        border-radius: 3rem;
+        border-color: $accent 4px solid;
+        margin-bottom: 1rem;
+        padding-left: 1rem;
+        width: 90%;
+    }
+
+    &__button {
+        padding-right: 3rem;
+        padding-left: 3rem;
+        background-color: $secondary;
+        color: #FFFF;
+        border-radius: 3rem;
+        border: 0.0625rem solid $secondary;
+        padding: 0 1rem;
+        align-content: last baseline;
+        padding: 1rem;
+        font-size: 2rem;
+        font-family: 'Arvo';
+        margin-top: 1rem;
+
+        &:active {
+            background-color: $accent;
+        }
+
+        &:hover {
+            background-color: $accent;
+        }
+
+    }
+
+
+
+}
