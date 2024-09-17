@@ -98,6 +98,7 @@ function HomePage() {
       );
 
       let listData = response.data.docs.filter((book) => book && book.title);
+      console.log (listData);
       // let listData = [
       //   response.data.docs[0],
       //   response.data.docs[1],
@@ -128,11 +129,10 @@ function HomePage() {
   };
 
   const handleGenerate = async (e) => {
-    e.preventDefault(); // Prevent form submission (refresh)
+    e.preventDefault(); 
     setLoading(true);
 
     try {
-      // Fetch all books by the titles provided by the user
       await Promise.all([
         fetchBookByTitle(titleOne, setBookOne),
         fetchBookByTitle(titleTwo, setBookTwo),
@@ -205,7 +205,7 @@ function HomePage() {
         setTitleThree={setTitleThree}
         onGenerate={handleGenerate}
       />
-      <div className="homepage">
+      {/* <div className="homepage">
         <div>
           <h2>
             Book One: {subjectList[0] ? subjectList[0].title : "Loading..."}
@@ -231,8 +231,8 @@ function HomePage() {
           {subjectList[2] && (
             <p>Author: {subjectList[2].author_name?.join(", ")}</p>
           )}
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
     </>
   );
 }
