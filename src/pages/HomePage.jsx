@@ -96,7 +96,7 @@ function HomePage() {
       index === self.findIndex((b) => b.title === book.title)
     );
 
-    navigate("/results", { state: { subjectList: filteredList.slice(0,20) } });
+    // navigate("/results", { state: { subjectList: filteredList.slice(0,20) } });
 
   
     return filteredList.slice(0,20);
@@ -140,36 +140,45 @@ function HomePage() {
         const subjectTwo = bookTwo.subject || [];
         const subjectThree = bookThree.subject || [];
 
+        console.log(subjectOne.slice(0,4))
+        console.log(subjectTwo.slice(0,4))
+        console.log(subjectThree.slice(0,4))
+
         const common = commonSubjects(subjectOne, subjectTwo, subjectThree);
         const commonSubjectsLimited = common.slice(0, 10);
 
         if (commonSubjectsLimited.length > 2) {
           await Promise.all ([ 
             fetchBooksBySubjects(commonSubjectsLimited, setSubjectList, titleOne, titleTwo, titleThree),
-            fetchBooksBySubjects(subjectOne.slice(0, 5), setSubjectOneList, titleOne, titleTwo, titleThree),
-            fetchBooksBySubjects(subjectTwo.slice(0, 5), setSubjectTwoList, titleOne, titleTwo, titleThree),
-            fetchBooksBySubjects(subjectThree.slice(0, 5), setSubjectThreeList, titleOne, titleTwo, titleThree),
+            fetchBooksBySubjects(subjectOne.slice(0, 4), setSubjectOneList, titleOne, titleTwo, titleThree),
+            fetchBooksBySubjects(subjectTwo.slice(0, 4), setSubjectTwoList, titleOne, titleTwo, titleThree),
+            fetchBooksBySubjects(subjectThree.slice(0, 4), setSubjectThreeList, titleOne, titleTwo, titleThree),
           ]);
         } else {
           await Promise.all([
-            fetchBooksBySubjects(subjectOne.slice(0, 5), setSubjectOneList, titleOne, titleTwo, titleThree),
-            fetchBooksBySubjects(subjectTwo.slice(0, 5), setSubjectTwoList, titleOne, titleTwo, titleThree),
-            fetchBooksBySubjects(subjectThree.slice(0, 5), setSubjectThreeList, titleOne, titleTwo, titleThree),
+            fetchBooksBySubjects(subjectOne.slice(0, 4), setSubjectOneList, titleOne, titleTwo, titleThree),
+            fetchBooksBySubjects(subjectTwo.slice(0, 4), setSubjectTwoList, titleOne, titleTwo, titleThree),
+            fetchBooksBySubjects(subjectThree.slice(0, 4), setSubjectThreeList, titleOne, titleTwo, titleThree),
           ]);
 
-          const finalList = combineAndFilterRecommendations(
-            subjectList.slice(0,5),
-            subjectOneList.slice(0, 5),
-            subjectTwoList.slice(0, 5),
-            subjectThreeList.slice(0, 5)
-          );
-
-          setSubjectList(finalList);
-          navigate("/results", { state: { subjectList: finalList } });
           
 
           
         }
+
+        const finalList = combineAndFilterRecommendations(
+          subjectList.slice(0,2),
+          subjectOneList.slice(0, 2),
+          subjectTwoList.slice(0, 2),
+          subjectThreeList.slice(0, 2)
+        );
+        console.log(finalList);
+
+        setSubjectList(finalList);
+        navigate("/results", { state: { subjectList: finalList } });
+        
+
+        
         
 
           
@@ -245,7 +254,7 @@ function HomePage() {
   //   };
   //     }
   //   }
-  }, [bookOne, bookTwo, bookThree, loading, subjectOneList, subjectTwoList, subjectThreeList]);
+  }, [bookOne, bookTwo, bookThree, loading, subjectOneList, subjectTwoList, subjectThreeList, navigate]);
 
   //to-do list
   // only take the first three subjects when querying

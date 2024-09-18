@@ -2,6 +2,10 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
+html{
+    background-color: $background;
+}
+
 body{
     background-color: $background;
 }

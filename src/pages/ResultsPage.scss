@@ -1,3 +1,7 @@
+@use "../styles/partials/global" as *;
+@use "../styles/partials/variables" as *;
+@use "../styles/partials/mixins" as *;
+
 .swiper {
     width: 100%;
     padding-top: 50px;
@@ -18,4 +22,8 @@
     display: block;
     width: auto;
     background-position: center;
+  }
+
+  body{
+    background-color: $background;
   }
