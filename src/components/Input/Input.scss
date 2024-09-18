@@ -13,6 +13,10 @@ input {
     display: flex;
     flex-direction: column;
 
+    &__title{
+        color: $primary;
+    }
+
     &__book {
         margin-left: 5rem;
         padding: 1rem;

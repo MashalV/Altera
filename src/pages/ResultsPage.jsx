@@ -24,7 +24,7 @@ function ResultsPage() {
 
         <Header/>
         <div>
-        <h3>Recommended Books</h3>
+        <h3 className="rec">Recommended Books</h3>
         <Swiper 
             effect={'coverflow'}
             grabCursor={true}
@@ -43,7 +43,7 @@ function ResultsPage() {
                 subjectList.map((book, index) => (
                     <SwiperSlide>
                         <div key={index}>
-                            <h2>{book.title}</h2>
+                            <h2 className= "rec">{book.title}</h2>
                             <img 
                               src={getCoverUrl(book.cover_i)} 
                               alt={book.title} 

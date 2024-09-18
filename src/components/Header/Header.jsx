@@ -4,6 +4,17 @@ import Logo from "../../assets/images/logo.png";
 import { NavLink } from 'react-router-dom';
 
 function Header() {
+
+    function setIcon(iconPath) {
+        let link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+        link.type = 'image/png'; 
+        link.rel = 'icon';
+        link.href = iconPath;
+        
+        document.head.appendChild(link);
+      }
+      
+      setIcon(Logo);
   return (
     <>
         <div className="navbar">

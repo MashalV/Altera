@@ -2,6 +2,10 @@
 @use "../styles/partials/variables" as *;
 @use "../styles/partials/mixins" as *;
 
+
+.rec {
+    color: $primary;
+}
 .swiper {
     width: 100%;
     padding-top: 50px;
@@ -24,6 +28,6 @@
     background-position: center;
   }
 
-  body{
+  html, body, main, footer{
     background-color: $background;
   }
