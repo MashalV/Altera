@@ -9,6 +9,7 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 
 import { EffectCoverflow, Pagination } from 'swiper/modules';
+import Footer from '../components/Footer/Footer';
 function ResultsPage() {
   const location = useLocation();
   const { subjectList } = location.state || {}; 
@@ -18,7 +19,9 @@ function ResultsPage() {
   };
 
   return (
-    <>
+    <div className= "wrapper">
+        <main>
+
         <Header/>
         <div>
         <h3>Recommended Books</h3>
@@ -26,16 +29,16 @@ function ResultsPage() {
             effect={'coverflow'}
             grabCursor={true}
             centeredSlides={true}
-            slidesPerView={'auto'}
+            slidesPerView={3}
             coverflowEffect={{
-            rotate: 50,
-            stretch: 0,
+                rotate: 50,
+                stretch: 0,
             depth: 100,
             modifier: 1,
             slideShadows: true,
-            }}
-            pagination={true}
-            modules={[EffectCoverflow, Pagination]} >
+        }}
+        pagination={true}
+        modules={[EffectCoverflow, Pagination]} >
             {subjectList && subjectList.length > 0 ? (
                 subjectList.map((book, index) => (
                     <SwiperSlide>
@@ -45,7 +48,7 @@ function ResultsPage() {
                               src={getCoverUrl(book.cover_i)} 
                               alt={book.title} 
                               className="book-cover" 
-                            />
+                              />
                             <p>Author: {book.author_name?.join(', ')}</p>
                             <p>Rating: {book.ratings_average}</p>
                         </div>
@@ -57,7 +60,9 @@ function ResultsPage() {
         )}
         </Swiper>
         </div>
-    </>
+        </main>
+        <Footer />
+    </div>
   );
 }
 

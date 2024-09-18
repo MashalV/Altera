@@ -1,3 +1,17 @@
 @use "../../styles/partials/global" as *;
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
+
+body{
+    background-color: $background;
+}
+
+.sign{
+    color: $accent;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    &__name{
+        color: $accent;
+    }
+}

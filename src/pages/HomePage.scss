@@ -1,0 +1,9 @@
+main {
+    flex: 1;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the wrapper takes at least the full height of the viewport */
+}

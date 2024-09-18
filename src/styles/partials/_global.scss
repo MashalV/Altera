@@ -13,12 +13,19 @@
 html {
     background-color: $background;
     display: block;
+    height: 100%;
 }
 
 body {
   font-family: 'Arvo';
   font-weight: 400;
-  background-color: $background
+  background-color: $background;
+  height: 100%;
+  
+}
+
+main {
+    flex: 1;
 }
 
 h1, h2, h3, h4, h5 {
