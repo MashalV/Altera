@@ -5,6 +5,7 @@ import Header from "../components/Header/Header";
 import Input from "../components/Input/Input";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer/Footer";
+import Spinner from "../components/Spinner/Spinner";
 
 function HomePage() {
   document.title = "AlteraBooks: Home";
@@ -23,6 +24,7 @@ function HomePage() {
   const [subjectTwoList, setSubjectTwoList] = useState([]);
   const [subjectThreeList, setSubjectThreeList] = useState([]);
   const [commonSubjectList, setCommonSubjectList] = useState([]);
+  const [allFetched, setAllFetched] = useState(false);
   const [loading, setLoading] = useState(true);
   const [dependency, setDependency] =useState(0);
 
@@ -181,6 +183,7 @@ function HomePage() {
   const handleGenerate = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setAllFetched(true);
 
     try {
       await Promise.all([
@@ -284,6 +287,7 @@ function HomePage() {
         console.log(finalList);
 
         setSubjectList(finalList);
+        setAllFetched(true);
         navigate("/results", { state: { subjectList: finalList } });
       }
     
@@ -302,6 +306,8 @@ function HomePage() {
     subjectTwoList,
     subjectThreeList,
     navigate,
+    setAllFetched, 
+    allFetched
   ]);
 
   //to-do list
@@ -309,6 +315,11 @@ function HomePage() {
 
   return (
     <div className="wrapper">
+
+    {allFetched ? (
+            <Spinner /> // Display spinner when loading
+          ) : ( 
+         <>
       <main>
         <Header />
         <Input
@@ -319,6 +330,9 @@ function HomePage() {
         />
       </main>
       <Footer />
+
+       </>
+          )} 
     </div>
   );
 }
