@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import "./HomePage.scss";
 import axios from "axios";
 import Header from "../components/Header/Header";
@@ -24,6 +24,7 @@ function HomePage() {
   const [subjectThreeList, setSubjectThreeList] = useState([]);
   const [commonSubjectList, setCommonSubjectList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [dependency, setDependency] =useState(0);
 
   const fetchBookByTitle = async (title, setBookState) => {
     const baseURL = "https://openlibrary.org/search.json?q=";
@@ -88,7 +89,7 @@ function HomePage() {
     });
   };
 
-  const fetchBooksBySubjects = async (
+  const fetchBooksBySubjects = useMemo (() => async (
     commonSubjects,
     setListState,
     titleOne,
@@ -99,7 +100,7 @@ function HomePage() {
     try {
       const response = await axios.get(
         `${baseURL}${encodeURIComponent(commonSubjects)}`
-      );
+      )
 
       let listData = response.data.docs.filter((book) => book && book.title);
 
@@ -118,9 +119,10 @@ function HomePage() {
       console.error(
         "Error fetching books by subject:",
         error.response ? error.response.data : error.message
-      );
+      )
     }
-  };
+    }, [dependency]);
+  
 
   const combineAndFilterRecommendations = (
     subjectOneList,
@@ -211,6 +213,7 @@ function HomePage() {
 
         try {
           if (commonSubjectsLimited.length > 2) {
+            setDependency(dependency+1)
             await Promise.all([
               fetchBooksBySubjects(
                 commonSubjectsLimited,
@@ -242,6 +245,7 @@ function HomePage() {
               ),
             ]);
           } else {
+            setDependency(dependency+1)
             await Promise.all([
               fetchBooksBySubjects(
                 subjectOne.slice(0, 4),

@@ -13,6 +13,7 @@ import Footer from '../components/Footer/Footer';
 function ResultsPage() {
   const location = useLocation();
   const { subjectList } = location.state || {}; 
+  document.title = "AlteraBooks: Results";
 
   const getCoverUrl = (coverId) => {
     return coverId ? `https://covers.openlibrary.org/b/id/${coverId}-L.jpg` : 'default-cover.jpg';
