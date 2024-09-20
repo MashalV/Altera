@@ -7,3 +7,11 @@ main {
     flex-direction: column;
     min-height: 100vh; /* Ensures the wrapper takes at least the full height of the viewport */
 }
+
+.message{
+        position: fixed;
+        top: 40%;
+        left: 40%;
+        transform: translate(-40%, -40%);
+        z-index: 1000;
+}
