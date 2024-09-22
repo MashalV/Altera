@@ -4,14 +4,17 @@
 
 
 .rec {
+    font-size: 1rem;
     color: $primary;
+    @include tablet{
+        font-size: 3rem;
+    }
 }
 .swiper {
-    width: 100%;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    background-position: center;
-
+        width: 100%;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        background-position: center;
   }
   
   .swiper-slide {
@@ -24,8 +27,11 @@
 
   .swiper-slide img {
     display: block;
-    width: auto;
+    width: 80%;
     background-position: center;
+    @include tablet {
+        width: auto;
+    }
   }
 
   html, body, main, footer{
@@ -33,4 +39,6 @@
   }
 
 
-  
+  .swiped {
+    height: 50%;
+  }

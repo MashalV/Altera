@@ -43,10 +43,9 @@ function HomePage() {
       const response = await axios.get(
         `${baseURL}${encodeURIComponent(title)}`
       );
-      // console.log(`Response for "${title}":`, response.data.docs[0].subject);
+     
       const bookData = response.data.docs[0];
       return bookData;
-      // setBookState(bookData);
     } catch (error) {
       console.error(
         "Error fetching books by subject:",
