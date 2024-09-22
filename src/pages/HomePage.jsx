@@ -11,23 +11,14 @@ function HomePage() {
   document.title = "AlteraBooks: Home";
 
   const navigate = useNavigate();
-
-  // const [bookOne, setBookOne] = useState([]);
   const [titleOne, setTitleOne] = useState("");
   const [titleTwo, setTitleTwo] = useState("");
   const [titleThree, setTitleThree] = useState("");
-  // const [bookTwo, setBookTwo] = useState([]);
-  // const [bookThree, setBookThree] = useState([]);
   const [subjectList, setSubjectList] = useState([]);
-  // const [subjectOneList, setSubjectOneList] = useState([]);
-  // const [subjectTwoList, setSubjectTwoList] = useState([]);
-  // const [subjectThreeList, setSubjectThreeList] = useState([]);
-  // const [commonSubjectList, setCommonSubjectList] = useState([]);
   const [allFetched, setAllFetched] = useState(false);
   const [loading, setLoading] = useState(true);
   const [findBooks, setFindBooks] = useState(false);
   const [findCommon, setFindCommon] = useState(false);
-  // const [dependency, setDependency] = useState(0);
 
   const fetchBookByTitle = async (title, setBookState) => {
     const baseURL = "https://openlibrary.org/search.json?q=";
@@ -35,7 +26,7 @@ function HomePage() {
       const response = await axios.get(
         `${baseURL}${encodeURIComponent(title)}`
       );
-      // console.log(`Response for "${title}":`, response.data.docs[0].subject);
+
       const bookData = response.data.docs[0];
       setBookState(bookData);
     } catch (error) {
@@ -84,11 +75,11 @@ function HomePage() {
           )
         : commonBetweenOneAndTwo;
 
-    // console.log(commonSubjects);
+
     return commonSubjects;
   };
 
-  // add for incase one or two is empty
+
 
   const filterOutUnwantedSubjects = (subjectList) => {
     const unwantedKeywords = ["imaginary place", "fictitious person", "etc", ")" , ":", "bien"];
@@ -107,7 +98,6 @@ function HomePage() {
   const fetchBooksBySubjects =
     async (
       commonSubjects,
-      // setListState,
       titleOne,
       titleTwo,
       titleThree
@@ -133,7 +123,6 @@ function HomePage() {
         console.log(listData);
         return listData;
 
-        // navigate("/results", { state: { subjectList: listData } });
       } catch (error) {
         console.error(
           "Error fetching books by subject:",
@@ -163,10 +152,7 @@ function HomePage() {
       .filter((book) => book.ratings_average >= 3)
       .slice(0, 6);
 
-    // console.log(commonList);
-    // console.log(subjectOneList);
-    // console.log(subjectTwoList);
-    // console.log(subjectThreeList);
+
     let combinedList = [
       ...filteredCommonList,
       ...filteredSubjectOneList,
@@ -175,19 +161,7 @@ function HomePage() {
     ];
     console.log(combinedList);
 
-    // const normalizedCombinedList = combinedList.map(book => ({
-    //   ...book,
-    //   title: book.title ? book.title.toLowerCase().trim() : null
-    // }));
 
-    // const filteredList = combinedList.filter(
-    //   (book, index, self) =>
-    //     book.title && index === self.findIndex((b) => b.title === book.title)
-    // );
-
-    // navigate("/results", { state: { subjectList: filteredList.slice(0,20) } });
-
-    // return filteredList.slice(0, 20);
 
     const uniqueBooks = [];
     const titlesSet = new Set();
@@ -214,35 +188,21 @@ function HomePage() {
     const responseThree = await fetchBookByTitle2(titleThree);
     console.log(responseOne);
     processBooks(responseOne, responseTwo, responseThree);
-    // try {
-    //   await Promise.all([
-    //     fetchBookByTitle(titleOne, setBookOne),
-    //     fetchBookByTitle(titleTwo, setBookTwo),
-    //     fetchBookByTitle(titleThree, setBookThree),
-    //   ]);
-    // } catch (error) {
-    //   console.error("Error during generation:", error);
-    // } finally {
-    //   setLoading(false);
-    // }
 
-    // if (!loading && bookOne && bookTwo && bookThree) {
-    //   processBooks();
-    // }
   };
 
   const processBooks = async (responseOne, responseTwo, responseThree) => {
     console.log(responseOne, responseTwo, responseThree);
     setFindBooks(true);
-    // console.log(bookOne, bookTwo, bookThree)
+
 
     const subjectOne = filterOutUnwantedSubjects(responseOne.subject || []);
     const subjectTwo = filterOutUnwantedSubjects(responseTwo.subject || []);
     const subjectThree = filterOutUnwantedSubjects(responseThree.subject || []);
 
-    console.log(subjectOne.slice(0, 3));
-    console.log(subjectTwo.slice(0, 3));
-    console.log(subjectThree.slice(0, 3));
+    console.log(subjectOne.slice(0, 4));
+    console.log(subjectTwo.slice(0, 4));
+    console.log(subjectThree.slice(0, 4));
 
     const common = commonSubjects(subjectOne, subjectTwo, subjectThree);
     const commonSubjectsLimited = common.slice(0, 10);
@@ -265,57 +225,29 @@ function HomePage() {
         setFindCommon(true);
 
         subjectOneList = await fetchBooksBySubjects(
-          subjectOne.slice(0, 3),
+          subjectOne.slice(0, 4),
           titleOne,
           titleTwo,
           titleThree
         );
 
         subjectTwoList = await fetchBooksBySubjects(
-          subjectTwo.slice(0, 3),
+          subjectTwo.slice(0, 4),
           titleOne,
           titleTwo,
           titleThree
         );
 
         subjectThreeList = await fetchBooksBySubjects(
-          subjectThree.slice(0, 3),
+          subjectThree.slice(0, 4),
           titleOne,
           titleTwo,
           titleThree
         );
-        // await Promise.all([
-        //   fetchBooksBySubjects(
-        //     commonSubjectsLimited,
-        //     titleOne,
-        //     titleTwo,
-        //     titleThree
-        //   ),
-        //   fetchBooksBySubjects(
-        //     subjectOne.slice(0, 4),
-        //     setSubjectOneList,
-        //     titleOne,
-        //     titleTwo,
-        //     titleThree
-        //   ),
-        //   fetchBooksBySubjects(
-        //     subjectTwo.slice(0, 4),
-        //     setSubjectTwoList,
-        //     titleOne,
-        //     titleTwo,
-        //     titleThree
-        //   ),
-        //   fetchBooksBySubjects(
-        //     subjectThree.slice(0, 4),
-        //     setSubjectThreeList,
-        //     titleOne,
-        //     titleTwo,
-        //     titleThree
-        //   ),
-        // ]);
+       
       } else {
         subjectOneList = await fetchBooksBySubjects(
-          subjectOne.slice(0, 3),
+          subjectOne.slice(0, 4),
           titleOne,
           titleTwo,
           titleThree
@@ -323,40 +255,19 @@ function HomePage() {
         console.log(subjectOneList);
 
         subjectTwoList = await fetchBooksBySubjects(
-          subjectTwo.slice(0, 3),
+          subjectTwo.slice(0, 4),
           titleOne,
           titleTwo,
           titleThree
         );
 
         subjectThreeList = await fetchBooksBySubjects(
-          subjectThree.slice(0, 3),
+          subjectThree.slice(0, 4),
           titleOne,
           titleTwo,
           titleThree
         );
-        // await Promise.all([
-        //   fetchBooksBySubjects(
-        //     setSubjectOneList,
-        //     titleOne,
-        //     titleTwo,
-        //     titleThree
-        //   ),
-        //   fetchBooksBySubjects(
-        //     subjectTwo.slice(0, 4),
-        //     setSubjectTwoList,
-        //     titleOne,
-        //     titleTwo,
-        //     titleThree
-        //   ),
-        //   fetchBooksBySubjects(
-        //     subjectThree.slice(0, 4),
-        //     setSubjectThreeList,
-        //     titleOne,
-        //     titleTwo,
-        //     titleThree
-        //   ),
-        // ]);
+      
       }
       
     } catch (error) {
@@ -376,29 +287,7 @@ function HomePage() {
     navigate("/results", { state: { subjectList: finalList } });
   };
 
-  // useEffect(() => {
 
-  // }
-
-  //   if (!loading && bookOne && bookTwo && bookThree) {
-  //     processBooks();
-  //   }
-  // }
-  // , [
-  //   bookOne,
-  //   bookTwo,
-  //   bookThree,
-  //   loading,
-  //   subjectOneList,
-  //   subjectTwoList,
-  //   subjectThreeList,
-  //   navigate,
-  //   setAllFetched,
-  //   allFetched
-  // ]);
-
-  //to-do list
-  // only take the first three subjects when querying
 
   return (
     <div className="wrapper">
