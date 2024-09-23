@@ -13,6 +13,7 @@ import "swiper/css/pagination";
 import { EffectCoverflow, Pagination } from "swiper/modules";
 
 function ResultsPage() {
+  document.title = "AlteraBooks: Results";
   const location = useLocation();
   const { subjectList } = location.state || {};
   const [resultsLoading, setResultsLoading] = useState(true);

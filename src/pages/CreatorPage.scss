@@ -1,0 +1,121 @@
+@use "../styles/partials/global" as *;
+@use "../styles/partials/variables" as *;
+@use "../styles/partials/mixins" as *;
+
+.swiper {
+    width: 300px;
+    height: 300px;
+    padding: 50px;
+  }
+  
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+  }
+
+  .grid{
+    display: grid;
+    grid-template-columns: 1fr; /* Create 3 equal columns */
+     gap: 20px; /* Adds space between the Swipers */
+     padding: 20px; /* Optional: Adds padding around the grid */
+    @include tablet { 
+        grid-template-columns: repeat(3, 1fr); 
+    }
+  }
+
+  .self{
+    background-color: #FEFADC ;
+    color: #FFF29C ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 3rem 2rem;
+  }
+
+  .historical{
+    background-color: #E6F4FF ;
+    color: #C5E5FE ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 3rem 2rem;
+  }
+  .thriller{
+    background-color: #E1FEFF ;
+    color: #ABFCFE ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 4rem 2rem;
+  }
+  .classic{
+    background-color: #F4E9FF ;
+    color: #DDC4FC ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 4rem 2rem;
+  }
+  .sci{
+    background-color: #E9FFF3;
+    color: #C2FFE1 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 3rem 2rem;
+  }
+  .fantasy{
+    background-color: #FEDBD5 ;
+    color: #FFACAB ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 4rem 2rem;
+  }
+
+  .bio {
+
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    @include tablet {
+        flex-direction: row;
+
+    }
+
+    &__text{
+        @include tablet {
+            font-size: 1rem;
+            align-self: center;
+            justify-content: center;
+            padding-left: .75rem;
+    
+        }
+
+    }
+
+    &__circle{
+        border-radius: 1rem;
+        justify-content: center;
+        align-items: center;
+        width: 10rem;
+        height: auto;
+        margin-bottom: 1rem;
+    }
+
+  }
