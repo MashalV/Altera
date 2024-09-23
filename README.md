@@ -47,7 +47,7 @@ Make sure you have the following installed on your machine:
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/YourUsername/altera-books.git
+    git clone https://github.com/MashalV/AlteraBooks.git
     ```
    
 2. **Navigate to the project folder**:
@@ -101,8 +101,7 @@ The project was built with a focus on responsiveness and user interaction. Hereâ
 
 - **User Authentication**: Allow users to save book recommendations to their profiles.
 - **Advanced Filters**: Add filters based on book genres, ratings, and publication years.
-- **Social Sharing**: Enable users to share book recommendations with friends.
-- **Dark Mode**: Add a dark mode for a better reading experience.
+- **Add tags**: Add tags to the books, mark as read or if the recommendation matches what you are looking for, or if you've read a recommendation and didn't like it (feedback)
 
 ## Contributing
 
