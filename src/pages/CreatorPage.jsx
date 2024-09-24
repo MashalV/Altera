@@ -11,6 +11,7 @@ import "swiper/css/navigation";
 
 import { EffectFlip, Pagination, Navigation } from "swiper/modules";
 import Footer from "../components/Footer/Footer";
+import classic from "../assets/images/classic.png";
 
 function CreatorPage() {
     document.title = "AlteraBooks: Creator";
@@ -77,7 +78,7 @@ function CreatorPage() {
             <h3 className="classic">Classic</h3>
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/src/assets/images/classic.png" />
+            <img src={classic} />
           </SwiperSlide>
         </Swiper>
         <Swiper
