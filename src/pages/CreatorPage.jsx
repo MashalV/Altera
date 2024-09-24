@@ -92,7 +92,7 @@ function CreatorPage() {
             <h3 className="thriller">Thriller</h3>
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/src/assets/images/thriller.png" />
+            <img src="src/assets/images/thriller.png" />
           </SwiperSlide>
         </Swiper>
         <Swiper
