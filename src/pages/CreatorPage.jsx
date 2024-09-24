@@ -47,7 +47,7 @@ function CreatorPage() {
             <h3 className="self">Self-Help</h3>
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/src/assets/images/self-help.png" />
+            <img src="../assets/images/self-help.png" />
           </SwiperSlide>
         </Swiper>
         <Swiper
