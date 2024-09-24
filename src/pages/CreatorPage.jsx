@@ -16,7 +16,7 @@ import sci from "../assets/images/sci.png";
 import fantasy from "../assets/images/fantasy.png";
 import self from "../assets/images/self-help.png";
 import hist from "../assets/images/hist.png";
-import thriller from "../assets/images/thiller.png";
+import thriller from "../assets/images/thriller.png";
 import creator from "../assets/images/creator.png";
 
 function CreatorPage() {
