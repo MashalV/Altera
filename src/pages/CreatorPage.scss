@@ -2,20 +2,20 @@
 @use "../styles/partials/variables" as *;
 @use "../styles/partials/mixins" as *;
 
-.swiper {
+.swiper2 {
     width: 300px;
     height: 300px;
     padding: 50px;
   }
   
-  .swiper-slide {
+  .swiper-slide2 {
     background-position: center;
     background-size: cover;
     width: 300px;
     height: 300px;
   }
   
-  .swiper-slide img {
+  .swiper-slide2 img {
     display: block;
     width: 100%;
   }

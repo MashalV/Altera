@@ -6,37 +6,48 @@
 .rec {
     font-size: 1rem;
     color: $primary;
-    @include tablet{
+
+    @include tablet {
         font-size: 3rem;
     }
 }
+
 .swiper {
-        width: 100%;
-        padding-top: 50px;
-        padding-bottom: 50px;
-        background-position: center;
-  }
-  
-  .swiper-slide {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-position: center;
+}
+
+.swiper-slide {
     display: flex;
     background-position: center;
     background-size: cover;
     width: 300px;
     height: 300px;
-  }
+}
 
-  .swiper-slide img {
+.swiper-slide img {
     display: block;
     width: 80%;
     background-position: center;
+
     @include tablet {
         width: auto;
     }
-  }
+}
 
-  html, body, main, footer{
+
+
+
+
+
+html,
+body,
+main,
+footer {
     background-color: $background;
-  }
+}
 
 
 //   .swiped {

@@ -31,7 +31,7 @@ function ResultsPage() {
   };
 
   return (
-    <div className="wrapper">
+    <div className="wrap">
       <main>
         <Header />
         {resultsLoading ? (

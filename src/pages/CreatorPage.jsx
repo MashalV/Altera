@@ -48,12 +48,12 @@ function CreatorPage() {
           pagination={true}
           navigation={true}
           modules={[EffectFlip, Pagination, Navigation]}
-          className="mySwiper"
+          className="mySwiper swiper2"
         >
-          <SwiperSlide>
+          <SwiperSlide className="swiper-slide2">
             <h3 className="self">Self-Help</h3>
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className="swiper-slide2">
             <img src={self} />
           </SwiperSlide>
         </Swiper>
@@ -63,12 +63,12 @@ function CreatorPage() {
           pagination={true}
           navigation={true}
           modules={[EffectFlip, Pagination, Navigation]}
-          className="mySwiper"
+          className="mySwiper swiper2"
         >
-          <SwiperSlide>
+          <SwiperSlide className="swiper-slide2">
             <h3 className="fantasy">Fantasy</h3>
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className="swiper-slide2">
             <img src={fantasy} />
           </SwiperSlide>
         </Swiper>
@@ -78,12 +78,12 @@ function CreatorPage() {
           pagination={true}
           navigation={true}
           modules={[EffectFlip, Pagination, Navigation]}
-          className="mySwiper"
+          className="mySwiper swiper2"
         >
-          <SwiperSlide>
+          <SwiperSlide className="swiper-slide2">
             <h3 className="classic">Classic</h3>
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className="swiper-slide2">
             <img src={classic} />
           </SwiperSlide>
         </Swiper>
@@ -93,14 +93,14 @@ function CreatorPage() {
           pagination={true}
           navigation={true}
           modules={[EffectFlip, Pagination, Navigation]}
-          className="mySwiper"
+          className="mySwiper swiper2"
         >
-          <SwiperSlide>
+          <SwiperSlide className="swiper-slide2">
             <h3 className="thriller">Thriller</h3>
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className="swiper-slide2">
             <img src={thriller} />
-          </SwiperSlide>
+          </SwiperSlide >
         </Swiper>
         <Swiper
           effect={"flip"}
@@ -108,12 +108,12 @@ function CreatorPage() {
           pagination={true}
           navigation={true}
           modules={[EffectFlip, Pagination, Navigation]}
-          className="mySwiper"
+          className="mySwiper swiper2"
         >
-          <SwiperSlide>
+          <SwiperSlide className="swiper-slide2">
             <h3 className="sci">Science-Fiction</h3>
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className="swiper-slide2">
             <img src={sci} />
           </SwiperSlide>
         </Swiper>
@@ -123,12 +123,12 @@ function CreatorPage() {
           pagination={true}
           navigation={true}
           modules={[EffectFlip, Pagination, Navigation]}
-          className="mySwiper"
+          className="mySwiper swiper2"
         >
-          <SwiperSlide>
+          <SwiperSlide className="swiper-slide2">
             <h3 className="historical">Historical Romance</h3>
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className="swiper-slide2">
             <img src={hist} />
           </SwiperSlide>
         </Swiper>
