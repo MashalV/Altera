@@ -12,6 +12,12 @@ import "swiper/css/navigation";
 import { EffectFlip, Pagination, Navigation } from "swiper/modules";
 import Footer from "../components/Footer/Footer";
 import classic from "../assets/images/classic.png";
+import sci from "../assets/images/sci.png";
+import fantasy from "../assets/images/fantasy.png";
+import self from "../assets/images/self-help.png";
+import hist from "../assets/images/hist.png";
+import thriller from "../assets/images/thiller.png";
+import creator from "../assets/images/creator.png";
 
 function CreatorPage() {
     document.title = "AlteraBooks: Creator";
@@ -19,7 +25,7 @@ function CreatorPage() {
     <>
       <Header />
       <div className= "bio">
-        <img className= "bio__circle" src = "/src/assets/images/creator.png"></img>
+        <img className= "bio__circle" src = {creator}></img>
 
         <div className = "bio__text">
             <p>
@@ -48,7 +54,7 @@ function CreatorPage() {
             <h3 className="self">Self-Help</h3>
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/src/assets/images/self-help.png" />
+            <img src={self} />
           </SwiperSlide>
         </Swiper>
         <Swiper
@@ -63,7 +69,7 @@ function CreatorPage() {
             <h3 className="fantasy">Fantasy</h3>
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/src/assets/images/fantasy.png" />
+            <img src={fantasy} />
           </SwiperSlide>
         </Swiper>
         <Swiper
@@ -93,7 +99,7 @@ function CreatorPage() {
             <h3 className="thriller">Thriller</h3>
           </SwiperSlide>
           <SwiperSlide>
-            <img src="src/assets/images/thriller.png" />
+            <img src={thriller} />
           </SwiperSlide>
         </Swiper>
         <Swiper
@@ -108,7 +114,7 @@ function CreatorPage() {
             <h3 className="sci">Science-Fiction</h3>
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/src/assets/images/sci.png" />
+            <img src={sci} />
           </SwiperSlide>
         </Swiper>
         <Swiper
@@ -123,7 +129,7 @@ function CreatorPage() {
             <h3 className="historical">Historical Romance</h3>
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/src/assets/images/hist.png" />
+            <img src={hist} />
           </SwiperSlide>
         </Swiper>
       </div>
