@@ -136,7 +136,7 @@ function HomePage() {
     subjectThreeList,
     commonList
   ) => {
-    const limitPerSubject = 10;
+    const limitPerSubject = 6;
 
     const filteredSubjectOneList = subjectOneList
       .filter((book) => book.ratings_average >= 3)
@@ -174,7 +174,7 @@ function HomePage() {
       }
     });
 
-    return uniqueBooks.slice(0, 20);
+    return uniqueBooks.slice(0, 10);
   };
 
   const handleGenerate = async (e) => {
